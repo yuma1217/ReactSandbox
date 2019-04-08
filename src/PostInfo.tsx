@@ -7,7 +7,9 @@ export const PostInfo = () => (
         {appContext => appContext && (
             <div>
                 Name: {appContext.name},
+
                 Author: {appContext.author},
+                
                 Url: {appContext.url}
             </div>
         )}
