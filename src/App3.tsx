@@ -1,3 +1,6 @@
+// https://qiita.com/zaburo/items/ce46e4a53e23ef210df1
+// この記事をTypescript化してみる
+
 import * as React from 'react';
 
 const RootContext = React.createContext<IValue | null>(null);
@@ -27,6 +30,10 @@ export class App3 extends React.Component<{}, {count : number}>{
         // this.increment = ::this.increment;
 
     }
+
+    // cannnot read property 'count' of undefined
+    // のエラーはアロー関数にすることで防ぐ
+    
     // public increment() {
     //     this.setState({count: this.state.count + 1});
     // }
