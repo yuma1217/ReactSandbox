@@ -12,9 +12,18 @@ const Counter = () => (
                 <span>{context.state.count}</span>
                 <button onClick={context.actions.increment}>+1</button>
                 <button onClick={context.actions.decrement}>-1</button>
+                <GrandChild />
             </div>
         )
         }
+    </RootContext.Consumer>
+)
+
+const GrandChild = () => (
+    <RootContext.Consumer>
+        {context => context && (
+            <div>{context.state.count}</div>
+        )}
     </RootContext.Consumer>
 )
 
@@ -33,7 +42,7 @@ export class App3 extends React.Component<{}, {count : number}>{
 
     // cannnot read property 'count' of undefined
     // のエラーはアロー関数にすることで防ぐ
-    
+
     // public increment() {
     //     this.setState({count: this.state.count + 1});
     // }
