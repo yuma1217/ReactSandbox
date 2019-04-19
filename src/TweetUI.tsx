@@ -78,12 +78,12 @@ function TweetInput(props:any){
     )
 }
 
-export class App extends React.Component{
-    private tweets = [
+export const App: React.FC = () => {
+    const [tweets, setTweets] = React.useState([
         {
-            icon: '',
             id: 0,
             // tslint:disable-next-line:object-literal-sort-keys
+            icon: '',
             displayName: 'もろこし太郎',
             accountName: 'morokoshi',
             content: '今日も1日もろこしがうまい'
@@ -96,14 +96,15 @@ export class App extends React.Component{
             accountName: 'evidence',
             content: 'かにみそたべたい'
         }
-    ];
+    ])
 
-    public render(){
+    const addTweet = React.useCallback((tweet) => setTweets((prev) => [tweet, ...prev]), [setTweets]);
 
-        return(
-            <div>
-                <Timeline tweets={this.tweets}/>
-            </div>
-        )
-    }
+    return(
+        <div>
+            <TweetInput addTweet={addTweet} />
+            <Timeline tweets={tweets} />
+
+        </div>
+    );
 }
