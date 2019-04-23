@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom';
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 // tslint:disable-next-line:ordered-imports
-import { App } from './TweetUI';
+import { App } from './Messenger/App';
 
 ReactDOM.render(
   <App />,
